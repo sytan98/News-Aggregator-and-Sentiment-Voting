@@ -15,7 +15,7 @@ export default class Headline extends React.Component {
         this.setState({open:true})        
         console.log("Sending Vote")
         const vote_json = {"news_id": news_id, "vote": vote}
-        axios.post('http://127.0.0.1:5000/api/v1/votes', vote_json)
+        axios.post('api/v1/votes', vote_json)
             .then(res => console.log(res.data))
     }
 
@@ -25,7 +25,6 @@ export default class Headline extends React.Component {
 
     render() {
         let variant;
-        console.log(this.props.compound_sentiment)
         if (this.props.compound_sentiment >0){
             variant = "success"
         } else if (this.props.compound_sentiment == 0){

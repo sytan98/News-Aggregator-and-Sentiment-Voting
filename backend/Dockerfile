@@ -1,7 +1,10 @@
-FROM python:3.7
-WORKDIR /backend
-COPY requirements.txt requirements.txt
+FROM python:3.6.9
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
-EXPOSE 5000
-COPY . .
-CMD ["gunicorn", "wsgi:app", "-w 2", "-b 0.0.0.0:5000", "-t 30"]
+
+ENTRYPOINT [ "flask" ]
+CMD ["run", "--host=0.0.0.0", "--port=5000"]

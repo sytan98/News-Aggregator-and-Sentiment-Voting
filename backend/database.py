@@ -21,7 +21,7 @@ def create_table(conn, create_table_sql):
         print(e)
 
 def create_news(conn, article, source):
-    article.append(datetime.utcnow().strftime("%d/%m/%y"))
+    article.append(datetime.utcnow().strftime("%d-%m-%y"))
     article.append(source)
     sql_query = """INSERT INTO news(headline,link,og_compound_rating,og_negative_rating, og_neutral_rating, og_positive_rating, date, source)
                    VALUES(?,?,?,?,?,?,?,?)"""
@@ -35,6 +35,13 @@ def select_news_by_source(conn, source):
     cur = conn.cursor()
     cur.execute(sql_query, (source,))
     return cur.fetchall()
+
+def select_news_by_source_date(conn, source, date):
+    sql_query = """SELECT * FROM news WHERE source=? and date=?"""
+    cur = conn.cursor()
+    cur.execute(sql_query, (source, date, ))
+    return cur.fetchall()
+
 
 def select_vote_by_news_id(conn, news_id):
     sql_query = """SELECT * FROM votes WHERE news_id=?"""

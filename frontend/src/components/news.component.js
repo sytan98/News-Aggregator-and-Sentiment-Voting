@@ -15,9 +15,13 @@ export default class News extends React.Component {
 
     componentDidMount(){
         console.log("Getting News")
-        axios.get('http://127.0.0.1:5000/api/v1/headlines', {params: {'source':this.props.source}})
+        let d = new Date()
+        let utc_date = d.getUTCDate().toString();
+        let utc_month = (d.getUTCMonth()+1).toString();
+        let utc_year = d.getUTCFullYear().toString();
+        let date = ("0" + utc_date).slice(-2) +'-' + ("0" + utc_month).slice(-2) + '-' + utc_year.slice(-2)
+        axios.get('api/v1/headlines', {params: {'source':this.props.source, 'date':date}})
             .then(res => {
-                console.log(res.data);
                 let positive_news = []
                 let negative_news = []
                 let neutral_news = []
