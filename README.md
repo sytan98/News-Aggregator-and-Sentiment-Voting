@@ -1,5 +1,6 @@
 # News-Aggregator-and-Sentiment-Voting
 
+Application is deployed and live on this link: https://demo.lioneltsy.life/
 Just a simple weekend project.
 Purpose of this application is to web scrap the top headline news of different news sources, get a basic sentiment level from the headlines and allow users to vote their opinion on the true sentiment of the news.
 
