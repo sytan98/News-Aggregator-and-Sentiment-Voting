@@ -15,7 +15,7 @@ function App() {
             <p>The purpose of this Web App is to web scrap the latest news from each prominent News Source in Singapore.<br />
                This Web App aggregates them and provides a sentiment level for each headline news.</p>
             <p>
-                <Button variant="primary">View the Source Code</Button>
+                <Button variant="primary" href="https://github.com/sytan98/News-Aggregator-and-Sentiment-Voting">View the Source Code</Button>
             </p>
         </Jumbotron>
         <Container>
@@ -25,6 +25,9 @@ function App() {
                 </Col>
                 <Col>
                     <News source="Mothership"/>
+                </Col>
+                <Col>
+                    <News source="TheStraitsTimes"/>
                 </Col>
  
             </Row>

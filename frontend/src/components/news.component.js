@@ -44,7 +44,7 @@ export default class News extends React.Component {
             <div>
                 <Container>
                     <Row>
-                        <Col xs md lg="10"><h1>{this.props.source}</h1> </Col>
+                        <Col xs md="6" lg="9"><h2>{this.props.source}</h2> </Col>
                         <Col><Image src={image_path} fluid/></Col>
                     </Row>   
                 </Container>

@@ -1,4 +1,4 @@
-from webscraper import get_cna_headlines, get_mothership_headlines
+from webscraper import get_cna_headlines, get_mothership_headlines, get_straits_times
 from sentiment_analysis import get_sentiments
 import sqlite3
 from sqlite3 import Error
@@ -28,6 +28,17 @@ for i in range(len(mothership_headlines)):
     # print(get_sentiments(mothership_headlines[i]))
     article += list(get_sentiments(mothership_headlines[i]))
     mothership_articles.append(article)
+
+straitstimes_articles = []
+# Get Straits Times
+straitstimes_headlines, straitstimes_links = get_straits_times()
+# print(cna_headlines)
+for i in range(len(straitstimes_headlines)):
+    article = [straitstimes_headlines[i], straitstimes_links[i]]
+    # print(get_sentiments(mothership_headlines[i]))
+    article += list(get_sentiments(straitstimes_headlines[i]))
+    straitstimes_articles.append(article)
+
 
 
 database = "db/news.db"
@@ -64,3 +75,6 @@ for i in cna_articles:
 
 for i in mothership_articles:
     print(create_news(conn, i, "Mothership"))
+
+for i in straitstimes_articles:
+    print(create_news(conn, i, "TheStraitsTimes"))
