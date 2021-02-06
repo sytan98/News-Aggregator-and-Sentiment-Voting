@@ -40,6 +40,12 @@ export default class News extends React.Component {
 
     render() {
         let image_path = this.props.source + ".png"
+        let d = new Date()
+        let utc_date = d.getUTCDate().toString();
+        let utc_month = (d.getUTCMonth()+1).toString();
+        let utc_year = d.getUTCFullYear().toString();
+        let date = ("0" + utc_date).slice(-2) +'-' + ("0" + utc_month).slice(-2) + '-' + utc_year.slice(-2)
+        
         return(
             <div>
                 <Container>
@@ -57,6 +63,7 @@ export default class News extends React.Component {
                             headline={headline[1]}
                             link={headline[2]}
                             compound_sentiment={headline[4]}
+                            date={date}
                         />
                     )}
                 </Card>
@@ -69,6 +76,7 @@ export default class News extends React.Component {
                             headline={headline[1]}
                             link={headline[2]}
                             compound_sentiment={headline[4]}
+                            date={date}
                         />
                     )}
                 </Card>
@@ -81,6 +89,7 @@ export default class News extends React.Component {
                             headline={headline[1]}
                             link={headline[2]}
                             compound_sentiment={headline[4]}
+                            date={date}
                         />
                     )}
                 </Card>

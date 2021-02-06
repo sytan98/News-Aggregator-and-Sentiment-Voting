@@ -41,7 +41,7 @@ for i in range(len(straitstimes_headlines)):
 
 
 
-database = "usr/src/app/db/news.db"
+database = "db/news.db"
 sql_create_news_table = """ CREATE TABLE IF NOT EXISTS news (
                                 id integer PRIMARY KEY,
                                 headline text NOT NULL,

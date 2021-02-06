@@ -85,11 +85,12 @@ export default class Headline extends React.Component {
                     <Collapse in={this.state.open}>
                         <div id="example-collapse-text"> <br /> Thanks for voting:)</div>
                     </Collapse>
-                    
                 </Card.Body>
                 <Card.Footer>
                     <Card.Link href={this.props.link}>Article Link</Card.Link>{' '}
                     <Card.Link onClick={() =>this.handleCheck()} size="sm">Done Reading</Card.Link>
+                    <br />
+                    <small>Article posted on {this.props.date}</small>
                 </Card.Footer>
             </Card> 
         : null

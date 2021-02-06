@@ -1,10 +1,14 @@
 FROM python:3.6.9
 
+RUN apt-get update && apt-get -y install cron
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
+
+RUN mkdir db
 
 ENTRYPOINT [ "flask" ]
 CMD ["run", "--host=0.0.0.0", "--port=5000"]
